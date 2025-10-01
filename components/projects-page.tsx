@@ -22,7 +22,13 @@ export default function ProjectsPage({ isPortfolioVisible, isDarkMode }: Project
   const [isAnimating, setIsAnimating] = useState(false)
 
   const projects: Project[] = [
-    
+    {
+      name: "NINSAU",
+      description: "Personal Portfolio Website",
+      type: "REACT/TS",
+      url: "https://ninsau.vercel.app",
+      image: "/ninsau-portfolio.png",
+    },
     {
       name: "GEOGUARD",
       description: "Illegal Mining Detection Web Application",

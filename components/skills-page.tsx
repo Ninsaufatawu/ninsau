@@ -20,7 +20,6 @@ export default function SkillsPage({ isDarkMode }: SkillsPageProps) {
     ],
     tools: [
       { name: "AWS", level: 87, years: "3+ years" },
-      { name: "Docker", level: 85, years: "3+ years" },
       { name: "Git", level: 95, years: "5+ years" },
       { name: "Figma", level: 78, years: "2+ years" },
       { name: "Jest", level: 83, years: "3+ years" },

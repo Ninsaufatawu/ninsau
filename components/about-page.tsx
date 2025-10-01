@@ -42,7 +42,7 @@ export default function AboutPage({ isDarkMode }: AboutPageProps) {
                 {/* Download CV Button */}
             <div className="mt-6">
               <a
-                href="/cv.pdf"
+                href="/NINSAU ABDUL FATAWU.pdf"
                 download
                 className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs sm:text-sm font-medium tracking-wider transition-colors border ${
                   isDarkMode
