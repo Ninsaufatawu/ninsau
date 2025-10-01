@@ -130,7 +130,7 @@ export default function MainPage() {
             {/* Hamburger (sm/md only) */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden p-2 rounded-md hover:bg-gray-200/50 dark:hover:bg-gray-800/60 transition-colors"
+              className={`lg:hidden p-2 rounded-md hover:bg-gray-200/50 dark:hover:bg-gray-800/60 transition-colors ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}
               aria-label="Open menu"
             >
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="block">
