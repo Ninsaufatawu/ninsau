@@ -81,6 +81,18 @@ export default function Navigation({
 
             {/* Menu Items */}
             <div className="space-y-6 sm:space-y-8">
+              
+              <button
+                onClick={() => handleNavigation("home")}
+                className={`w-full text-left border-b pb-4 sm:pb-6 transition-colors group cursor-pointer ${isDarkMode ? "border-gray-700 hover:border-gray-600" : "border-gray-300 hover:border-gray-400"}`}
+              >
+                <h3
+                  className={`text-lg sm:text-xl font-medium tracking-wide mb-1 sm:mb-2 ${isDarkMode ? "text-gray-200 group-hover:text-gray-100" : "text-gray-800 group-hover:text-gray-900"}`}
+                >
+                  Home
+                </h3>
+              </button>
+
               <button
                 onClick={() => handleNavigation("about")}
                 className={`w-full text-left border-b pb-4 sm:pb-6 transition-colors group cursor-pointer ${isDarkMode ? "border-gray-700 hover:border-gray-600" : "border-gray-300 hover:border-gray-400"}`}
