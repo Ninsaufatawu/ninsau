@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react"
 
+
+
 interface Project {
   name: string
   description: string
@@ -31,7 +33,7 @@ export default function ProjectsPage({ isPortfolioVisible, isDarkMode }: Project
     {
       name: "GRABBER",
       description: "Grocery App UI",
-      type: "FIGMA",
+      type: "FIGMA/UI",
       url: "https://www.figma.com/proto/4Pt2kwiCEpX5viysfsgGkc/Grabber-Grocrey-App?t=GzULUZl1cLRmlZFo-1",
       image: "/grabber.png",
     },
@@ -70,13 +72,14 @@ export default function ProjectsPage({ isPortfolioVisible, isDarkMode }: Project
     <section
       className={`min-h-screen relative transition-all duration-1000 px-4 sm:px-8 ${isPortfolioVisible ? "opacity-100" : "opacity-0"}`}
     >
+      
       {/* Main Content Container */}
       <div
-        className={`relative w-full h-screen flex items-center justify-center transition-all duration-700 ${isAnimating ? "scale-95 opacity-70" : "scale-100 opacity-100"}`}
+        className={`relative z-10 w-full h-screen flex items-center justify-center transition-all duration-700 ${isAnimating ? "scale-95 opacity-70" : "scale-100 opacity-100"}`}
       >
         {/* Project Image Container - Enhanced with extraordinary animations */}
         <div
-          className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-60 sm:w-96 sm:h-72 md:w-[28rem] md:h-80 lg:w-[32rem] lg:h-96 rounded-lg overflow-hidden shadow-2xl transition-all duration-700 ease-out ${
+          className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-60 h-44 sm:w-96 sm:h-72 md:w-[28rem] md:h-80 lg:w-[32rem] lg:h-96 rounded-lg overflow-hidden shadow-2xl transition-all duration-700 ease-out ${
             isAnimating
               ? "scale-90 rotate-6 -translate-y-8 shadow-4xl"
               : "scale-100 rotate-0 translate-y-0 shadow-2xl"
@@ -96,22 +99,22 @@ export default function ProjectsPage({ isPortfolioVisible, isDarkMode }: Project
             }`}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30" />
-          <div className="absolute bottom-4 left-4 right-4 bg-black/20 backdrop-blur-sm rounded-lg p-3">
+          <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 bg-black/20 backdrop-blur-sm rounded-lg p-2 sm:p-3">
             <button
               onClick={() => handleProjectClick(projects[currentProject].url)}
-              className="text-white font-medium text-lg tracking-wide hover:underline cursor-pointer transition-colors drop-shadow-lg"
+              className="text-white font-medium text-sm sm:text-lg tracking-wide hover:underline cursor-pointer transition-colors drop-shadow-lg"
             >
               {projects[currentProject].name} →
             </button>
-            <p className="text-white text-sm mt-1 drop-shadow-md">{projects[currentProject].description}</p>
+            <p className="text-white text-xs sm:text-sm mt-1 drop-shadow-md">{projects[currentProject].description}</p>
           </div>
         </div>
 
         <div
-          className={`absolute left-0 top-1/2 -translate-y-1/2 w-48 h-48 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full -translate-x-3/4 transition-all duration-1000 ease-out ${
+          className={`absolute left-0 top-1/2 -translate-y-1/2 w-32 h-32 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full -translate-x-full sm:-translate-x-3/4 transition-all duration-1000 ease-out ${
             isAnimating
-              ? "rotate-180 scale-125 -translate-x-1/2 opacity-80"
-              : "rotate-0 scale-100 -translate-x-3/4 opacity-100"
+              ? "rotate-180 scale-125 -translate-x-3/4 sm:-translate-x-1/2 opacity-80"
+              : "rotate-0 scale-100 -translate-x-full sm:-translate-x-3/4 opacity-100"
           } ${isDarkMode ? "bg-gray-800/30" : "bg-gray-200/30"}`}
           style={{
             background: isAnimating
@@ -130,10 +133,10 @@ export default function ProjectsPage({ isPortfolioVisible, isDarkMode }: Project
         </div>
 
         <div
-          className={`absolute right-0 top-1/2 -translate-y-1/2 w-40 h-40 sm:w-60 sm:h-60 md:w-72 md:h-72 lg:w-80 lg:h-96 rounded-full border-2 border-dashed -translate-x-1/4 transition-all duration-1000 ease-out ${
+          className={`absolute right-0 top-1/2 -translate-y-1/2 w-28 h-28 sm:w-60 sm:h-60 md:w-72 md:h-72 lg:w-80 lg:h-96 rounded-full border-2 border-dashed translate-x-0 sm:-translate-x-1/4 transition-all duration-1000 ease-out ${
             isAnimating
-              ? "-rotate-270 scale-110 translate-x-0 opacity-70"
-              : "rotate-0 scale-100 -translate-x-1/4 opacity-100"
+              ? "-rotate-270 scale-110 translate-x-1 sm:translate-x-0 opacity-70"
+              : "rotate-0 scale-100 translate-x-0 sm:-translate-x-1/4 opacity-100"
           } ${isDarkMode ? "border-gray-600/50" : "border-gray-400/50"}`}
           style={{
             borderStyle: isAnimating ? "solid" : "dashed",
@@ -165,21 +168,21 @@ export default function ProjectsPage({ isPortfolioVisible, isDarkMode }: Project
           }}
         >
           <h1
-            className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-wider ${isDarkMode ? "text-gray-200" : "text-gray-800"}`}
+            className={`text-l px-1 sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-wider ${isDarkMode ? "text-gray-200" : "text-gray-800"}`}
           >
             {projects[currentProject].type.toUpperCase().includes("FIGMA") ? "UI/UX" : "CODE"}
           </h1>
         </div>
 
         <div
-          className={`absolute right-8 sm:right-12 md:right-16 top-1/2 -translate-y-1/2 transition-all duration-700 ease-out ${
+          className={`absolute right-2 sm:right-12 md:right-16 top-1/2 -translate-y-1/2 transition-all duration-700 ease-out ${
             isAnimating
               ? "translate-x-8 sm:translate-x-12 opacity-40 rotate-180 scale-90"
               : "translate-x-0 opacity-100 rotate-90 scale-100"
           }`}
         >
           <div
-            className={`border px-2 sm:px-4 py-4 sm:py-8 transition-all duration-500 ${
+            className={`border px-1 sm:px-4 py-3 sm:py-8 transition-all duration-500 ${
               isAnimating ? "border-2 shadow-lg" : "border"
             } ${isDarkMode ? "border-gray-400" : "border-gray-600"}`}
             style={{
@@ -190,14 +193,14 @@ export default function ProjectsPage({ isPortfolioVisible, isDarkMode }: Project
                 : "transparent",
             }}
           >
-            <span className={`text-xs font-medium tracking-widest ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>
+            <span className={`text-[10px] sm:text-xs font-medium tracking-widest ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>
               {projects[currentProject].type}
             </span>
           </div>
         </div>
 
         <div
-          className={`absolute left-1/4 sm:left-1/3 top-1/4 grid grid-cols-6 sm:grid-cols-8 gap-1 transition-all duration-1000 ease-out ${
+          className={`absolute left-1/4  sm:left-1/3 top-1/3 sm:top-1/3 md:top-1/4  grid grid-cols-6 sm:grid-cols-8 gap-1 transition-all duration-1000 ease-out ${
             isAnimating ? "rotate-180 scale-150 opacity-60" : "rotate-0 scale-100 opacity-100"
           }`}
         >
@@ -224,7 +227,7 @@ export default function ProjectsPage({ isPortfolioVisible, isDarkMode }: Project
         </div>
 
         <div
-          className={`absolute top-8 sm:top-16 left-1/2 -translate-x-1/2 text-lg sm:text-xl transition-all duration-600 ease-out ${
+          className={`absolute top-8 sm:top-16 left-1/2 -translate-x-1/2 text-sm sm:text-xl transition-all duration-600 ease-out ${
             isAnimating
               ? "-translate-y-8 sm:-translate-y-12 scale-150 rotate-45 opacity-70"
               : "translate-y-0 scale-100 rotate-0 opacity-100"
@@ -236,7 +239,7 @@ export default function ProjectsPage({ isPortfolioVisible, isDarkMode }: Project
           ✕✕
         </div>
         <div
-          className={`absolute bottom-12 sm:bottom-20 left-1/2 -translate-x-1/2 text-lg sm:text-xl transition-all duration-600 ease-out ${
+          className={`absolute bottom-12 sm:bottom-20 left-1/2 -translate-x-1/2 text-sm sm:text-xl transition-all duration-600 ease-out ${
             isAnimating
               ? "translate-y-8 sm:translate-y-12 scale-150 -rotate-45 opacity-70"
               : "translate-y-0 scale-100 rotate-0 opacity-100"
@@ -249,7 +252,7 @@ export default function ProjectsPage({ isPortfolioVisible, isDarkMode }: Project
         </div>
 
         <div
-          className={`absolute top-1/4 right-1/4 w-16 sm:w-24 md:w-32 h-px border-t border-dashed transition-all duration-800 ease-out ${
+          className={`pointer-events-none absolute top-1/4  right-1/4 w-16 sm:w-24 md:w-32 h-px border-t border-dashed transition-all duration-800 ease-out ${
             isAnimating ? "rotate-180 scale-200 opacity-80" : "rotate-45 scale-100 opacity-100"
           } ${isDarkMode ? "border-gray-600" : "border-gray-400"}`}
           style={{
@@ -258,7 +261,7 @@ export default function ProjectsPage({ isPortfolioVisible, isDarkMode }: Project
           }}
         />
         <div
-          className={`absolute bottom-1/3 left-1/4 sm:left-1/3 w-12 sm:w-16 md:w-24 h-px border-t border-dashed transition-all duration-800 ease-out ${
+          className={`pointer-events-none absolute  bottom-1/3 left-1/4 sm:left-1/3 w-12 sm:w-16 md:w-24 h-px border-t border-dashed transition-all duration-800 ease-out ${
             isAnimating ? "rotate-90 scale-200 opacity-80" : "-rotate-12 scale-100 opacity-100"
           } ${isDarkMode ? "border-gray-600" : "border-gray-400"}`}
           style={{
@@ -280,7 +283,7 @@ export default function ProjectsPage({ isPortfolioVisible, isDarkMode }: Project
       </div>
 
       <div
-        className={`absolute bottom-8 sm:bottom-12 md:bottom-16 right-4 sm:right-6 md:right-8 transition-all duration-500 ease-out ${
+        className={`absolute z-50 pointer-events-auto absolute bottom-8 sm:bottom-12 md:bottom-16 right-4 sm:right-6 md:right-8 transition-all duration-500 ease-out ${
           isAnimating ? "scale-125 rotate-3" : "scale-100 rotate-0"
         }`}
       >

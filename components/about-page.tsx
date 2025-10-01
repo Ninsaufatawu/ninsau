@@ -12,6 +12,7 @@ export default function AboutPage({ isDarkMode }: AboutPageProps) {
             ABOUT
           </h1>
           <div className={`w-16 sm:w-20 md:w-24 h-px ${isDarkMode ? "bg-gray-600" : "bg-gray-400"}`}></div>
+          
         </div>
 
         {/* Main Content Grid */}
@@ -36,6 +37,37 @@ export default function AboutPage({ isDarkMode }: AboutPageProps) {
                   or exploring the latest in AI and machine learning technologies.
                 </p>
               </div>
+            </div>
+
+                {/* Download CV Button */}
+            <div className="mt-6">
+              <a
+                href="/cv.pdf"
+                download
+                className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs sm:text-sm font-medium tracking-wider transition-colors border ${
+                  isDarkMode
+                    ? "border-gray-600 text-gray-200 hover:text-white hover:bg-gray-800"
+                    : "border-gray-400 text-gray-700 hover:text-gray-900 hover:bg-gray-200"
+                }`}
+              >
+                {/* Icon */}
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                <span>Download CV</span>
+              </a>
             </div>
 
             <div>
@@ -79,6 +111,8 @@ export default function AboutPage({ isDarkMode }: AboutPageProps) {
                 </div>
               </div>
             </div>
+
+            
 
             <div>
               <h2 className={`text-xl sm:text-2xl font-medium tracking-wide mb-4 sm:mb-6 ${isDarkMode ? "text-gray-200" : "text-gray-800"}`}>Interests</h2>
