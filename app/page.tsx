@@ -60,34 +60,7 @@ export default function MainPage() {
 
     if (typeof window === "undefined") return
 
-    if (section === "projects") {
-      // Scroll the internal snap container to the second panel
-      const scrollToProjects = () => {
-        const el = homeScrollRef.current
-        if (el) {
-          el.scrollTo({ top: el.clientHeight, behavior: "smooth" })
-          return true
-        }
-        return false
-      }
-      // Try immediately, else retry shortly after render
-      if (!scrollToProjects()) {
-        setTimeout(scrollToProjects, 50)
-      }
-      return
-    }
-
-    if (section === "home") {
-      const el = homeScrollRef.current
-      if (el) {
-        el.scrollTo({ top: 0, behavior: "smooth" })
-      } else {
-        window.scrollTo({ top: 0, behavior: "smooth" })
-      }
-      return
-    }
-
-    // For other pages, scroll window to top
+    // For all pages, scroll window to top
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
 
@@ -109,6 +82,7 @@ export default function MainPage() {
       case "contact":
         return <ContactPage isDarkMode={isDarkMode} />
       case "projects":
+        return <ProjectsPage isPortfolioVisible={true} isDarkMode={isDarkMode} />
       case "home":
       default:
         return renderHomePage()
@@ -186,7 +160,7 @@ export default function MainPage() {
         </>
       )}
 
-      {renderHomePage()}
+      {renderCurrentPage()}
 
       <Navigation
         isMenuOpen={isMenuOpen}
